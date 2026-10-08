@@ -1,0 +1,167 @@
+BRS Generation Prompt 
+
+Use the following prompt with GitHub Copilot to generate a BRS from a TOM file: 
+
+Generate a Business Requirements Specification (BRS) Excel workbook from the supplied TOM file. 
+
+ 
+
+Analyze the TOM by reviewing all relevant sheets, rows, columns, test scenarios, validation steps, user roles, journey stages, system responses, business rules, integrations, conditions, and expected outcomes. Treat the TOM as the source of truth. Do not invent functionality, rules, systems, values, or acceptance criteria that are not supported by the TOM. 
+
+ 
+
+Derive one functional requirement for each distinct capability, business rule, user action, system behavior, integration, validation, or journey step. Group related TOM scenarios into one requirement when they describe the same capability, but retain separate requirements when they have different objectives, rules, screens, actors, or outcomes. 
+
+ 
+
+For every requirement, populate these nine columns exactly: 
+
+ 
+
+1. Ref # 
+
+2. Requirement Category 
+
+3. Requirement Title 
+
+4. Requirement Description 
+
+5. Acceptance Criteria 
+
+6. Requirement SME 
+
+7. MoSCoW 
+
+8. System 
+
+9. Reference to Other Related Documents If Applicable 
+
+ 
+
+Requirement rules: 
+
+- Number requirements sequentially as FR001, FR002, FR003, and so on. 
+
+- Write a concise, meaningful title describing the capability and relevant journey/page. 
+
+- Preserve important TOM terminology, product names, system names, statuses, identifiers, and business terms. 
+
+- Correct spelling and grammar without changing the intended meaning. 
+
+- Assign a logical category based on the journey and capability, such as Quote, SFJ, Fulfilment, Coverage, Order, Product, Cart, or Submission. 
+
+- Write the description as one concise paragraph beginning with “The solution must...”. 
+
+- State what the solution must enable, display, process, restrict, calculate, send, receive, or retain. 
+
+- Include the relevant actor, condition, business rule, data, and expected result where supported by the TOM. 
+
+- Do not write vague descriptions such as “the system supports the functionality.” 
+
+ 
+
+Acceptance-criteria rules: 
+
+- Derive criteria directly from the TOM scenarios and expected results. 
+
+- Make each criterion independently testable and observable. 
+
+- Cover the main happy path plus applicable alternate paths, role restrictions, eligibility rules, validations, error or unavailable states, integrations, data display, navigation, and persistence behavior. 
+
+- Use precise subject-action-result wording. 
+
+- Avoid “same as above”, “same as mobile journey”, “as applicable”, “validate”, “verify”, or “TBC” unless the TOM explicitly defines the behavior. 
+
+- Replace unclear references with the actual behavior or data from the TOM. 
+
+- Remove duplicate criteria within a requirement. 
+
+- Format criteria in one cell as separate lines using: 
+
+  - AC1: ... 
+
+  - AC2: ... 
+
+  - AC3: ... 
+
+- Do not add criteria that cannot be traced to the TOM. 
+
+- If the TOM contains no usable criterion for a distinct requirement, write one minimal, source-supported criterion describing the required successful behavior. 
+
+ 
+
+Duplicate and repetition handling: 
+
+- Normalize titles and wording before comparing requirements. 
+
+- Do not create duplicate requirements for repeated TOM rows, repeated screenshots, repeated test steps, or the same capability appearing in multiple scenarios. 
+
+- Merge repeated scenarios into the existing requirement and combine their unique acceptance criteria. 
+
+- Preserve meaningful differences such as customer type, journey type, role, technology, status, integration, or conditional behavior as separate criteria or separate requirements when necessary. 
+
+- Remove duplicate acceptance criteria and redundant wording. 
+
+- Keep each requirement focused on one coherent capability. 
+
+ 
+
+Workbook structure and formatting: 
+
+- Maintain the common BRS workbook structure: 
+
+  - “1. Scope” 
+
+  - “4. Functional Requirements” 
+
+  - “Image” 
+
+  - “Ref” 
+
+- On “4. Functional Requirements”, use: 
+
+  - Row 1: merged A1:I1 title, “Business Requirements Specification - [journey name]” 
+
+  - Row 2: merged A2:I2 subtitle, “Functional requirements derived from TOM [version] - Testcase Verification” or equivalent source wording 
+
+  - Row 4: the exact nine headers listed above 
+
+  - Requirements beginning in row 5 
+
+- Preserve the existing BRS visual style: 
+
+  - Aptos font for the functional-requirements table 
+
+  - Dark blue merged title row with white bold text 
+
+  - Blue header row with white bold text 
+
+  - Centered, wrapped header text 
+
+  - Wrapped, top-aligned requirement content 
+
+  - Thin light-blue row borders 
+
+  - Freeze panes at A5 
+
+  - Auto-filter covering A4:I[last requirement row] 
+
+  - Gridlines hidden 
+
+  - Column widths approximately: 
+
+    A 12, B 30, C 34, D 62, E 96, F 20, G 12, H 14, I 42 
+
+  - Use readable row heights that expand for wrapped descriptions and multiline criteria. 
+
+- Set MoSCoW to “Must” unless the TOM provides evidence for another priority. 
+
+- Set System to the system explicitly identified by the TOM; do not assume a system when none is specified. 
+
+- Leave Requirement SME and related-document references blank when the TOM provides no value. 
+
+- Preserve the scope, image, reference, validations, sheet names, and workbook usability from the BRS template. 
+
+- Save the result as a real `.xlsx` file, with formulas, formatting, filters, frozen panes, merged cells, and wrapped text preserved. 
+
+- Do not create a new BRS during this instruction-writing task; this prompt is the reusable generation instruction only.
